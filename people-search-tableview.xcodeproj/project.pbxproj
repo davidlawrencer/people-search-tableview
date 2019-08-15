@@ -15,6 +15,7 @@
 		540AB78C23059EDD007B790B /* people_search_tableviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540AB78B23059EDD007B790B /* people_search_tableviewUITests.swift */; };
 		540AB79D23059F19007B790B /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540AB79C23059F19007B790B /* People.swift */; };
 		540AB7A02305A172007B790B /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540AB79F2305A172007B790B /* PersonListTableViewController.swift */; };
+		540AB7A22305A42F007B790B /* PersonalInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540AB7A12305A42F007B790B /* PersonalInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		540AB78D23059EDD007B790B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		540AB79C23059F19007B790B /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		540AB79F2305A172007B790B /* PersonListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonListTableViewController.swift; path = "people-search-tableview/Controllers/PersonListTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		540AB7A12305A42F007B790B /* PersonalInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				540AB79F2305A172007B790B /* PersonListTableViewController.swift */,
+				540AB7A12305A42F007B790B /* PersonalInfoTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540AB7A02305A172007B790B /* PersonListTableViewController.swift in Sources */,
+				540AB7A22305A42F007B790B /* PersonalInfoTableViewCell.swift in Sources */,
 				540AB79D23059F19007B790B /* People.swift in Sources */,
 				540AB76C23059EDA007B790B /* AppDelegate.swift in Sources */,
 			);
