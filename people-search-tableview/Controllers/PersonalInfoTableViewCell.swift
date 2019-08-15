@@ -9,7 +9,9 @@
 import UIKit
 
 class PersonalInfoTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -46,6 +46,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="wLI-1V-2ZE" id="Sou-XF-iEG"/>
+                                    <outlet property="phoneNumber" destination="wEJ-Jp-DTU" id="Eqc-y1-708"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
