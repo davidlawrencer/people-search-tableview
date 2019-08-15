@@ -9,7 +9,7 @@
 import UIKit
 
 class PersonListTableViewController: UITableViewController {
-
+    var people = Person.allPeople
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,23 +24,26 @@ class PersonListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return people.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath) as? PersonalInfoTableViewCell{
+            cell.name?.text = people[indexPath.row].name
+            // in the particular row that we're looking at look for, look in our model for  the object that is in that location and use that info
+            cell.phoneNumber?.text = people[indexPath.row].phone
+            return cell
+        }
+        
+        return UITableViewCell()
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
