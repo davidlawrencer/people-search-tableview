@@ -13,9 +13,9 @@ class PersonListTableViewController: UITableViewController {
 
     @IBOutlet weak var searchBarOutlet: UISearchBar!
     
-    
     var personSearchResults:[Person] {
         get {
+            
         //when we have no search term, return the value of the initial set of people
             guard let searchString = searchString else {
                 return people
@@ -23,7 +23,18 @@ class PersonListTableViewController: UITableViewController {
             guard searchString != ""  else {
                 return people
             }
-            return people.filter{$0.name.contains(searchString.lowercased())}
+            if let scopeTitles = searchBarOutlet.scopeButtonTitles {
+                let currentScopeIndex = searchBarOutlet.selectedScopeButtonIndex
+                switch scopeTitles[currentScopeIndex] {
+                case "Name":
+                    return people.filter{$0.name.contains(searchString.lowercased())}
+                case "Phone":
+                    return people.filter{$0.phone.contains(searchString.lowercased())}
+                default:
+                    return people
+                }
+            }
+            return people
         }
     }
     
