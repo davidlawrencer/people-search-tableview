@@ -9,19 +9,37 @@
 import UIKit
 
 class PersonListTableViewController: UITableViewController {
-    var people = Person.allPeople
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let people = Person.allPeople
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    @IBOutlet weak var searchBarOutlet: UISearchBar!
+    
+    
+    var personSearchResults:[Person] {
+        get {
+        //when we have no search term, return the value of the initial set of people
+            guard let searchString = searchString else {
+                return people
+            }
+            guard searchString != ""  else {
+                return people
+            }
+            return people.filter{$0.name.contains(searchString.lowercased())}
+        }
+    }
+    
+    var searchString: String? = nil {
+        didSet {
+            print(searchString)
+            self.tableView.reloadData()
+        }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBarOutlet.delegate = self
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -29,15 +47,15 @@ class PersonListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return people.count
+        return personSearchResults.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath) as? PersonalInfoTableViewCell{
-            cell.name?.text = people[indexPath.row].name
+            cell.name?.text = personSearchResults[indexPath.row].name
             // in the particular row that we're looking at look for, look in our model for  the object that is in that location and use that info
-            cell.phoneNumber?.text = people[indexPath.row].phone
+            cell.phoneNumber?.text = personSearchResults[indexPath.row].phone
             return cell
         }
         
@@ -90,4 +108,13 @@ class PersonListTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension PersonListTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchBar.text
+    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchString = searchBar.text
+//    }
 }
